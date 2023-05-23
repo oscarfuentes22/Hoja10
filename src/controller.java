@@ -8,7 +8,7 @@ public class controller {
     private Map<String, Integer> cityIndex = new HashMap<>();
     private String[] cityNames;
 
-    private edu.uvg.graphs.FloydWarshall floydWarshall;
+    private FloydWarshall floydWarshall;
 
     private ArrayList<String> logica = new ArrayList<>();
 

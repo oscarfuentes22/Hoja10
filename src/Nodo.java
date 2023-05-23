@@ -5,8 +5,8 @@ public class Nodo {
     private String name;
     private Map<String, Integer[]> tiemposViaje;
 
-    public Node (String nombre) {
-        this.name = nombre;
+    public Nodo (String name) {
+        this.name = name;
         this.tiemposViaje = new HashMap<>();
     }
 
