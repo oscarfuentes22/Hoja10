@@ -53,8 +53,8 @@ public class controller {
 
         try {
             FileWriter writer = new FileWriter(archivo);
-            for (int i = 0; i < logica.size(); i++) {
-                writer.write(logica.get(i) + "\n");
+            for (String s : logica) {
+                writer.write(s + "\n");
             }
             writer.write(linea);
             writer.close();
