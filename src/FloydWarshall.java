@@ -1,9 +1,8 @@
 /**
- * 
- */
+ * Clase recuperada del repositorio de Moisés
+ * /
 
-
-/**
+ /**
  * @author MAAG
  *
  */
@@ -13,15 +12,12 @@ public class FloydWarshall {
 	private String[][] recorridos;
 	private String[] vertices;
 	private int SIZE;
-	
-	public FloydWarshall(int [][]_distancias, String[][] _recorridos, int matriz_size) {
+
+	public FloydWarshall(int [][]_distancias, String[][] _recorridos, int matriz_size, String[] _vertices) {
 		SIZE = matriz_size;
 		distancias = _distancias;
 		recorridos = _recorridos;
-		vertices = new String[matriz_size];
-		for (int i = 0; i < matriz_size; i++) {
-			vertices[i] = _recorridos[0][i];
-		}
+		vertices = _vertices;
 	}
 
 	/**
@@ -65,20 +61,18 @@ public class FloydWarshall {
 	public void setSIZE(int sIZE) {
 		SIZE = sIZE;
 	}
-	
+
 	public void CalcularRutas() {
 		for (int i = 0; i < SIZE; i++) { //Que fila y que columna trabajo
 			for (int j = 0; j < SIZE; j++) {
 				for (int k = 0; k < SIZE; k++) {
-					
 					if ((i != j) && (i != k)) {
-						int suma = distancias[j][i] + distancias[i][k]; 
+						int suma = distancias[j][i] + distancias[i][k];
 						if (suma < distancias[j][k]) {
 							distancias[j][k] = suma;
 							recorridos[j][k] = vertices[i];
 						}
 					}
-					
 				}
 			}
 		}

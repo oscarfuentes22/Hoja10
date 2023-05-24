@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 public class controller {
-    private Map<String, Nodo> city= new HashMap<>();
-    private Map<String, Integer> cityIndex = new HashMap<>();
+    private final Map<String, Nodo> city= new HashMap<>();
+    private final Map<String, Integer> cityIndex = new HashMap<>();
     private String[] cityNames;
 
     private FloydWarshall floydWarshall;
@@ -38,8 +38,8 @@ public class controller {
             for (int i = 0; i < 4; i++) {
                 time[i] = Integer.parseInt(datos[i + 2]);
             }
-            Nodo cityNames = city.getOrDefault(cityNames, new Nodo(cityNames));
-            cityIndex.addDistance(cityNames, time);  // Asume que el tiempo de regreso es el mismo
+            Nodo cityNames = city.getOrDefault(nameCityOrigin, new Nodo(nameCityOrigin));
+            cityNames.addDistance( DestinyCity, time);  // Asume que el tiempo de regreso es el mismo
             city.putIfAbsent(nameCityOrigin, cityNames);
 
             Nodo  Destiny = city.getOrDefault( DestinyCity, new Nodo( DestinyCity));
