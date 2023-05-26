@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +19,7 @@ public class controller {
     }
 
     public void achieve() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(".\\src\\logistica.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader(".\\src\\logica.txt"));
 
         String line;
         while ((line = reader.readLine()) != null) {
@@ -48,20 +49,49 @@ public class controller {
         }
 
     }
-    public void mod(String linea){
-        File archivo = new File(".\\src\\logistica.txt");
+    public void mod(int opcion , String line, String temp) {
 
-        try {
-            FileWriter writer = new FileWriter(archivo);
-            for (String s : logica) {
-                writer.write(s + "\n");
+        if (opcion == 1) {
+            //se interrumpe una conexion entre dos ciudades
+            for (int i = 0; i < logica.size(); i++) {
+                if (logica.get(i).contains(line)) {
+                    logica.remove(i);
+                }
             }
-            writer.write(linea);
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        }
+        if (opcion == 2) {
+            //se agrega una conexion entre dos ciudades
+            logica.add(line);
+        }
+        if (opcion == 3) {
+            //se cambia el temp de una ciudad
+            for (int i = 0; i < logica.size(); i++) {
+                if (logica.get(i).contains(line)) {
+                    String[] datos = logica.get(i).split(" ");
+                    switch (temp) {
+                        case "1":
+                            datos[2] = datos[2];
+                            break;
+                        case "2":
+                            datos[2] = datos[3];
+                            break;
+                        case "3":
+                            datos[2] = datos[4];
+                            break;
+                        case "4":
+                            datos[2] = datos[5];
+                            break;
+                        default:
+                            System.out.println("no se encontro el tiempo");
+                            break;
+                    }
+                    logica.set(i, datos[0] + " " + datos[1] + " " + datos[2] + " " + datos[3] + " " + datos[4] + " " + datos[5]);
+                }
+            }
         }
     }
+   
+   
     public Integer getIndiceCiudadPorNombre(String nombre) {
         Integer indice = cityIndex.get(nombre);
         if (indice == null) {
