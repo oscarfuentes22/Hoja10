@@ -1,0 +1,4 @@
+Santiago Craby 40 20 15 30
+SanJulian BuenosAires 70 15 70 60
+Lima Quito 40 50 15 20
+Lima Craby 60 50 80 60
