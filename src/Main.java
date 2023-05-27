@@ -20,7 +20,7 @@ public class Main {
 
             switch (menu) {
                 case 1 -> {
-                    //se calcula la ruta mas corta entre dos ciudades
+
                     System.out.println("Ingrese la ciudad de origen:");
                     String originCity = scanner.next();
                     System.out.println("Ingrese la ciudad de destino:");
@@ -33,10 +33,10 @@ public class Main {
                     System.out.println(message);
                 }
                 case 2 ->
-                    //se calcula la ciudad en el centro del grafo
+
                         System.out.println("Centro del grafo: " + control.getCentroDelGrafo());
                 case 3 -> {
-                    //se modifica el grafo de las ciudades
+
                     int opcion = 0;
                     while (opcion != 4) {
                         System.out.println("Ingrese el numero de la opcion que desea realizar:");
@@ -63,7 +63,7 @@ public class Main {
                                 control.mod(opcion, line, "");
                             }
                             case 2 -> {
-                                //se agrega una conexion entre dos ciudades
+
                                 System.out.println("Ingrese la ciudad de origen:");
                                 city_1 = scanner.next();
                                 System.out.println("Ingrese la ciudad de destino:");

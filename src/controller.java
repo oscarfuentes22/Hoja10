@@ -1,4 +1,4 @@
-import javax.swing.*;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -69,21 +69,11 @@ public class controller {
                 if (logica.get(i).contains(line)) {
                     String[] datos = logica.get(i).split(" ");
                     switch (temp) {
-                        case "1":
-                            datos[2] = datos[2];
-                            break;
-                        case "2":
-                            datos[2] = datos[3];
-                            break;
-                        case "3":
-                            datos[2] = datos[4];
-                            break;
-                        case "4":
-                            datos[2] = datos[5];
-                            break;
-                        default:
-                            System.out.println("no se encontro el tiempo");
-                            break;
+                        case "1" -> datos[2] = datos[2];
+                        case "2" -> datos[2] = datos[3];
+                        case "3" -> datos[2] = datos[4];
+                        case "4" -> datos[2] = datos[5];
+                        default -> System.out.println("no se encontro el tiempo");
                     }
                     logica.set(i, datos[0] + " " + datos[1] + " " + datos[2] + " " + datos[3] + " " + datos[4] + " " + datos[5]);
                 }
@@ -157,7 +147,7 @@ public class controller {
         }
 
 
-        //se crea la matriz de distancias
+
         for (Nodo ciudad : city.values()) {
             for (Map.Entry<String, Integer[]> entry : ciudad.getTiemposViaje().entrySet()) {
                 int origen = getIndiceCiudadPorNombre(ciudad.getNombre());
